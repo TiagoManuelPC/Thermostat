@@ -51,7 +51,10 @@ class Thermostat {
   };
 
   switchPowerSavingModeOn() {
-    this.powerSavingMode = true
+    this._powerSavingMode = true;
+    if (this.temperature >= this.MAX_LIMIT_PSM_OFF) {
+      this.temperature = this.MAX_LIMIT_PSM_ON;
+    }
   };
 
   resetTemperature() {
